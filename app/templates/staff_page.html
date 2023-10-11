@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+<style>
+    body{
+        background-image: url({% static './images/second.jpg' %});
+        background-repeat: no-repeat;
+        background-position:center ;
+        background-size: cover;
+        }
+        .container{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        text-align: center;
+        width: 100vw;
+        height: 98vh;
+        }
+        .left{
+            margin-top: 10vh;
+        }
+        .right{
+            border: 2px solid black;
+            padding:4px;
+            margin-right: 50px;
+            box-shadow:rgba(10, 9, 70, 8.80) ;;
+            background-color: rgba(212, 223, 233, 0.527);
+            
+
+        }
+        .right table{
+          
+        }
+        h1{
+        margin-top: 10px;
+        color:black;
+        
+        }
+        label{
+        margin: 10px;
+        width: 100px;
+        display: inline-block;
+        }
+        input{
+        padding: 5px;
+        margin: 10px;
+        width: 200px;
+        border-radius:10px;
+        height: auto;
+        border: none;
+        outline: none;;
+        }
+        .left form{
+        background-color: rgba(212, 235, 233, 0.80);
+        padding: 50px;
+        border-left:2px solid palevioletred;
+        border-right:2px solid blueviolet ;
+        border-top:2px solid red;
+        border-bottom:2px solid green ;
+        box-shadow:rgba(10, 9, 70, 0.221) ;
+        border-radius: 20px;
+        margin: 20px;
+        }
+        button{
+        margin-top: 4vh;
+        border-radius:7px ;
+        background:rgba(165, 42, 42);
+        padding: 7px 15px;
+        }
+        button:hover{
+        background: brown;
+        }
+</style>
+</head>
+<body>
+<div class="container">
+        <div class="left">
+            <form method="POST">
+            {% csrf_token %}
+            <h1>Enter Staff Details</h1>
+            <label for="">Name</label>
+            <input type="text" name="name_form" placeholder="enter your name"><br>
+            <label for="">Email</label>
+            <input type="email" name="email_form" placeholder="enter email"><br>
+            <label for="">Phone Number</label>
+            <input type="text" name="number_form" placeholder="phone number"><br>
+            <label for="">Position</label>
+            <input type="text" name="position_form" placeholder="position level"><br>
+            <label for="">Department</label>
+            <input type="text" name="department_form" placeholder="experience year"><br>
+            <label for="">Joining Date</label>
+            <input type="date" pattern="\d{4}-\d{2}-\d{2}" name="joining_form" placeholder="experience year"><br>
+            <label for="">Salary</label>
+            <input type="number" name="salary_form" placeholder="experience year"><br>
+            <a href="{% url 'homepage' %}">Go to Back</a>
+
+            <button type="submit">submit</button>
+            </form>
+            
+        </div>
+        <div class="right">
+            <h1><u> Staff Details</u></h1>
+            <table border=1 cellspacing="5">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Position</th>
+                    <th>Department</th>
+                    <th>Joining Date</th>
+                    <th>Salary</th>
+                </tr>
+                {% for i in data %}
+                <tr>
+                    <td>{{i.staff_name}}</td>
+                    <td>{{i.doc_education}}</td>
+                    <td>{{i.staff_phone}}</td>
+                    <td>{{i.staff_role}}</td>
+                    <td>{{i.staff_department}}</td>
+                    <td>{{i.staff_hire}}</td>
+                    <td>{{i.staff_salary}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+
+        </div>
+    </div>
+</body>
+</html>

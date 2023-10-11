@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            background: linear-gradient(90deg, rgba(209,69,27,0.5326505602240896) 55%, rgba(0,212,255,0.7455357142857143) 91%);
+
+        }
+        .hospital_name {
+            color:#0047bc;
+            font-size: 55px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .heading {
+            margin-top: 10px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #6b5600;
+            font-size: 25px;
+        }
+
+        .lower4_left{
+            background-image: url({% static 'images/ce.jpg' %});
+            width: 600px;
+            height: 400px;
+            background-repeat: no-repeat;
+            margin-left: 100px;
+            border-radius: 10px;
+        }
+
+        .lower4{
+            display: flex;
+        }
+        
+        .lower4_right{
+            background-color: rgba(212, 223, 233, 0.527);
+            width: 600px;
+            height: 400px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            margin-left: 100px;
+            border-radius: 25px;
+            /* margin-top: 50pstaticx; */
+
+        }
+
+        .lower4_right>a>button{
+
+            width: 150px;
+            height: 50px;
+            margin:10px;
+            color: salmon;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight:550;
+            /* display: flex; */
+            /* flex-direction: column; */
+            
+            
+        }
+        .lower4_right>a>button:hover{
+            background-color: brown;
+            color:black
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container_land">
+        <br>
+        <div class="hospital_name">
+            <h1 style="margin-top: 100px;">Arogyaneed Health Home</h1>
+        </div><br>
+        <br>
+        <div class="heading">
+            <h3>Welcome we are here for you.</h3><br>
+        </div>
+        <br>
+        <div class="lower4">
+            <div class="lower4_left">
+            </div>
+            <div class="lower4_right">
+                <a href="{% url 'doctor_url' %}"><button type="submit">Doctor</button></a>
+                <a href="{% url 'patient_url' %}"><button type="submit">Patient</button></a>
+                <a href="{% url 'staff_url' %}"><button type="submit">Staff</button></a>
+                <a href="{% url 'medicine_url' %}"><button type="submit">Medicine</button></a>  
+                <a href="{% url 'admin_hos' %}"><button>Back</button></a>
+
+            </div>
+        </div>
+</body>
+</html>

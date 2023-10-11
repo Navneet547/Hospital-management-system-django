@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+<style>
+    body{
+        background-image: url({% static './images/second.jpg' %});
+        background-repeat: no-repeat;
+        background-position:center ;
+        background-size: cover;
+        }
+        .container{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        text-align: center;
+        width: 100vw;
+        height: 98vh;
+        }
+        .left{
+            margin-top: 10vh;
+        }
+        .right{
+            border: 2px solid black;
+            padding:4px;
+            margin-right: 50px;
+            box-shadow:rgba(10, 9, 70, 8.80) ;;
+            background-color: rgba(212, 223, 233, 0.527);
+        }
+        
+        h1{
+        margin-top: 10px;
+        color:gainsboro;
+        
+        }
+        label{
+        margin: 10px;
+        width: 100px;
+        display: inline-block;
+        }
+        input{
+        padding: 5px;
+        margin: 10px;
+        width: 200px;
+        border-radius:10px;
+        height: auto;
+        border: none;
+        outline: none;;
+        }
+        .left form{
+        background-color: rgba(212, 223, 233, 0.527);
+        padding: 50px;
+        border-left:2px solid palevioletred;
+        border-right:2px solid blueviolet ;
+        border-top:2px solid red;
+        border-bottom:2px solid green ;
+        box-shadow:rgba(10, 9, 70, 0.221) ;
+        border-radius: 20px;
+        margin: 20px;
+        }
+        button{
+        margin-top: 4vh;
+        border-radius:7px ;
+        background:rgba(165, 42, 42, );
+        padding: 7px 15px;
+        }
+        button:hover{
+        background: brown;
+        }
+        h1{
+            color: blue;
+        }
+</style>
+</head>
+<body>
+<div class="container">
+        <div class="left">
+            <form method="POST">
+            {% csrf_token %}
+            <h1>Medicine</h1>
+            <label for="">Med-name</label>
+            <input type="text" name="description_form" placeholder="enter name"><br>
+            <label for="">Dose</label>
+            <input type="text" name="dose_form" placeholder=""><br>
+            <label for="">Discription</label>
+            <input type="text" name="seffect_form" placeholder="Discription"><br>
+            <label for="">Storage</label>
+            <input type="text" name="storage_form" placeholder=""><br>
+            <label for="">Manufacturing date</label>
+            <input type="date" name="mdate_form" placeholder=""><br>
+            <label for="">Expiry date</label>
+            <input type="date" name="edate_form" placeholder=""><br>
+            <label for="">Cost</label>
+            <input type="number" name="cost_form" placeholder=""><br>
+            <a href="{% url 'homepage' %}">Go to Back</a>
+            <button type="submit">submit</button>
+            </form>
+            
+        </div>
+        <div class="right">
+            <h1><u> Medicine Details</u></h1>
+            <table border=1 cellspacing="5">
+                <tr>
+                    <th>Discription</th>
+                    <th>Dose</th>
+                    <th>Side Effects</th>
+                    <th>Storage</th>
+                    <th>Manufacturing date</th>
+                    <th>Expiry date</th>
+                    <th>Cost</th>
+                </tr>
+                {% for i in data %}
+                <tr>
+                    <td>{{i.med_descr}}</td>
+                    <td>{{i.med_dose}}</td>
+                    <td>{{i.med_side_effects}}</td>
+                    <td>{{i.med_storage}}</td>
+                    <td>{{i.med_mdate}}</td>
+                    <td>{{i.med_edate}}</td>
+                    <td>{{i.med_cost}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+
+        </div>
+    </div>
+</body>
+</html>

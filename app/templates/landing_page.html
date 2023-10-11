@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body {
+            background-image: url({% static 'images/he.jpeg' %});
+            background-repeat: no-repeat;
+        }
+        .hospital_name {
+            color:#0047bc;
+            font-size: 40px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .heading {
+            margin-top: 10px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #6b5600;
+            font-size: 25px;
+
+
+        }
+
+        .about_land {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about_land>p {
+            width: 80vw;
+            text-align: justify;
+            background-color: lightblue;;
+            border-radius: 10px;
+            /* font-weight: 600; */
+            color: #1a2900;
+            font-family: 'anand';
+            box-shadow: 10 10 10 10;
+
+        }
+
+        .about_land>u {
+            color: #1a0e00;
+            font-weight: 800;
+            font-size: 40px;
+        }
+
+        ul>li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+        }
+
+        .button>a>button:hover {
+            /* background-color: #1a2900; */
+            background-color: rgb(250, 98, 98);
+            color: black;
+            border: 2px solid rgb(250, 98, 98);
+            font-size: 30px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+        }
+
+        .button>a>button {
+            padding-top: 10px;
+            padding-left: 80px;
+            padding-right: 80px;
+            padding-bottom: 10px;
+            font-size: 30px;
+            color: brown;
+            background: #f0f8ff88;
+            border: 2px solid brown;
+            margin: 15px;
+            font-weight: 600;
+            font-family: 'ui-monospace';
+            border-radius: 15px;
+        }
+
+
+        .lower {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .lower-left {
+            width: 400px;
+            font-weight: 600;
+        }
+
+        .lower-left>ol>li{
+            list-style: none;
+            font-size: 20px;
+        }
+
+        .lower-right>ol>li{
+
+            list-style: none;
+            font-size: 20px;
+        }
+
+        .lower-right {
+            width: 350px;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        p{
+            padding: 15px 15px;
+            color: white;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container_land">
+        <div class="hospital_name">
+            <h1 style="margin-top: 100px;">Arogyaneed Health Home</h1>
+        </div><br><br>
+        <div class="heading">
+
+            <h3>Welcome we are here for you.</h3>
+            
+        </div>
+        <div class="button">
+            <a href="{% url 'admin_hos' %}"><button>Admin</button></a>
+        </div><br>
+        <div class="about_land">
+            <!-- <h1><u> About Us</u></h1> -->
+            <u> About Us</u>
+            <p><b> Arogyaneed Health Home  is an Indian multinational healthcare group headquartered in Chennai.
+                Along with the eponymous hospital chain, the company also operates pharmacies, primary care and
+                diagnostic centres, telehealth clinics, and digital healthcare services among others through its
+                subsidiaries.
+                <br><br>
+
+                The company was founded by Prathap C. Reddy in 1983 as the first corporate healthcare provider in India.
+                Several of Arogyaneed Health Home have been among the first in India to receive international healthcare
+                accreditation by the India-based Join admin_host Commission International (JCI)[4][5] as well as NABH
+                accreditation.</b>
+                <br><br>
+                <br><br>
+            </p>
+        </div>
+        <div class="lower">
+            <div class="lower-left">
+                <!-- <h1>Head</h1> -->
+                <ol>
+                    <li>Dr. Kiran Devi (M.D.)</li>
+                    <li>Dr. P.N. Singh(M.D.)</li>
+                    <li>Dr. P.N. Singh(M.D.)</li>
+                </ol>
+            </div>
+            <div class="lower-right">
+                <!-- <footer> -->
+                <ol>
+                <li>Copyright © 2023 Company Name</li>
+                <li>123 Main Street, Suite 101</li>
+                <li>Anytown, USA 12345</li>
+                <!-- </footer> -->
+            </ol>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

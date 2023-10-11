@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: url( {% static 'images/d2.jpg' %});
+            height: 100vh;
+            width:100vw;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
+        .title{
+      
+            color:#0047bc;
+            font-size: 55px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo1{
+            border-radius: 50%;
+            height: 150px;
+            width:150px ;
+           
+        }
+        .logo{
+            padding-top: 10px;
+        }
+        .box1{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .admin{
+            font-size: 50px;
+            color: rgb(32, 49, 197);
+        }
+        
+        .box2{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+    form{
+        background: rgba(241, 222, 222, 0.90);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 40vw;
+        height: 32vw;
+        border-radius: 25px;
+        
+    }
+    input{
+        padding: 5px;
+        margin-top: 50px;
+        width: 300px;
+        height: 50px;
+        border-radius: 10px;
+        border-color: white;
+    }
+    .btn-submit{
+        margin-top: 50px;
+        padding: 10px;
+        border:2px solid;
+        width: 150px;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: rgb(103, 103, 236);
+        border-color: rgb(103, 103, 236);
+    }
+    label{
+        font-size: 25px;
+        font-weight: bold;
+    }
+    h4{
+        color:red;
+    }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="box1">
+                <h1 class="title" >Arogyaneed Health Home</h1>
+                <div class="logo"><img class="logo1" src="{% static 'images/imglogo.jpeg' %} " alt=""></div>
+               </div>
+            <div class="box2">
+               
+                <form action=""method="POST">
+                    {% csrf_token %}
+                    <h1 class="admin"><u> Admin Portal</u></h1>
+                    {% comment %} {% if request.GET.data %}
+                    <h1>{{ request.GET.data }}</h1>
+                {% endif %} {% endcomment %}
+                
+           
+                    <div>
+                        
+                    <label class="user_id" for="user_id" style="color:rgb(44, 66, 189); width: 100px; display: inline-block;">User-id</label>
+                    <input class="user_pass" type="text" name="admin_id" placeholder="Enter Your Admin ID"><br><br>
+                    <label class="user_id" for="password" style="color:rgb(44, 66, 189); width: 100px;display: inline-block;" >Password:</label>
+                    <input class="user_pass" type="password" name="admin_password" placeholder="Enter Password"><br>
+                    <br>
+                    <h4>{{ data }}</h4>
+                    <a href="{% url 'landing' %}">Go to Back</a>
+                    </div>
+                    
+                    <button class="btn-submit">LOG IN</button>
+
+                </form>
+
+            </div>
+        </div>
+        </div>
+    </section>
+</body>
+</html>
